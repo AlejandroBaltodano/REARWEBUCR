@@ -17,6 +17,12 @@
 Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/', 'Principalcontroller@index');
+
+//administradores
+Route::get('administradores/listaprofesores', 'Administradorcontroller@listaProfesores');
+Route::get('administradores/listaestudiantes', 'Administradorcontroller@listaEstudiantes');
+
+Route::resource('administradores','Administradorcontroller');
       
  });
 

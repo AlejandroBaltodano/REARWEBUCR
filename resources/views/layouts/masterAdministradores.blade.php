@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    @yield('style')
 <style>
   
   body{
@@ -37,15 +38,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         
+   
           <a class="navbar-brand" href="#">REARWEUCR- Administrador</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <!--izquierda-->
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li> 
+            <li><a href="/administradores/listaprofesores">Lista Profesores</a></li>
+            <li><a href="/administradores/listaestudiantes">Lista Estudiantes</a></li> 
           </ul>
           <!--derecha-->
           <ul class="nav navbar-nav navbar-right">
@@ -58,7 +58,7 @@
             
             <ul class="dropdown-menu" role="menu">
             <li>
-          <a href="#">{{Auth::user()->IdRolusuario}}</a>
+          <a href="#">{{Auth::user()->roles->NombreRol}}</a>
             </li>
             <li>
             <a href="{{ route('logout') }}"
@@ -78,6 +78,8 @@
 
     <div class="container">
     @yield('content')
+
+
 
     <div class="copyright text-center">
             <div class="container">

@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.masterAdministradores')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Registro de Estudiantes</div>
+                <div class="panel-heading">Registro de Profesores</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="/administradores">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -32,20 +32,6 @@
                                 @if ($errors->has('cedula'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('cedula') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                         <div class="form-group{{ $errors->has('carnetEstudiante') ? ' has-error' : '' }}">
-                            <label for="carnetEstudiante" class="col-md-4 control-label">Carnet</label>
-
-                            <div class="col-md-6">
-                                <input id="carnetEstudiante" type="carnetEstudiante" class="form-control" name="carnetEstudiante" required>
-
-                                @if ($errors->has('carnetEstudiante'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('carnetEstudiante') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -87,7 +73,8 @@
                             </div>
                         </div>
                         
-                                <input id="IdRolusuario" type="hidden" class="form-control" name="IdRolusuario" value="1">
+                                <input id="IdRolusuario" type="hidden" class="form-control" name="IdRolusuario" value="2">
+                                <input id="carnetEstudiante" type="hidden" class="form-control" name="carnetEstudiante" value="null">
 
 
                            
