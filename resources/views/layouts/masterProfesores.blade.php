@@ -58,7 +58,7 @@
             
             <ul class="dropdown-menu" role="menu">
             <li>
-          <a href="#">{{Auth::user()->IdRolusuario}}</a>
+          <a href="#">{{Auth::user()->roles->NombreRol}}</a>
             </li>
             <li>
             <a href="{{ route('logout') }}"

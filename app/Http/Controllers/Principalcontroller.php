@@ -14,6 +14,7 @@ class Principalcontroller extends Controller
 
  
         $user = Auth::user();
+  
 
     	if ($user->IdRolusuario === 1) {
 
