@@ -11,8 +11,6 @@ class Principalcontroller extends Controller
 
     /*este controlador solo existe para redeccionar las vistas segun los roles del  usuario*/
     public function index(){
-
- 
         $user = Auth::user();
   
 

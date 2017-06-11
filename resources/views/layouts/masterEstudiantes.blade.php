@@ -38,14 +38,12 @@
             <span class="icon-bar"></span>
           </button>
          
-          <a class="navbar-brand" href="#">REARWEUCR- Estudiante</a>
+          <a class="navbar-brand" href="/">REARWEUCR- Estudiante</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <!--izquierda-->
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li> 
+            <li><a href="#">Lista de Archivos</a></li>  
           </ul>
           <!--derecha-->
           <ul class="nav navbar-nav navbar-right">
@@ -77,6 +75,9 @@
     
 
     <div class="container">
+
+    @include('Archivos.subirArchivo')
+    
     @yield('content')
 
     <div class="copyright text-center">

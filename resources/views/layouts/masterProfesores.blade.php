@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
           </button>
          
-          <a class="navbar-brand" href="#">REARWEUCR- Profesor</a>
+          <a class="navbar-brand" href="/">REARWEUCR- Profesor</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <!--izquierda-->

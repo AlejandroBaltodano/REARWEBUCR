@@ -11,6 +11,7 @@ class Administradorcontroller extends Controller
 	
     public function listaProfesores(){
     	$usuarios= User::all();
+     
     return view('Administrador\listaProfesores', compact('usuarios'));
     		
     	}
@@ -26,7 +27,7 @@ public function create(){
 }
 
 public function store(Request $requests){
-
+ //otra forma de agregar cuando necesito manipular los datos
  $profesor = User::create([
             'name' => $requests['name'],
             'email' => $requests['email'],

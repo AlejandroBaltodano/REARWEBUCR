@@ -39,7 +39,7 @@
             <span class="icon-bar"></span>
           </button>
    
-          <a class="navbar-brand" href="#">REARWEUCR- Administrador</a>
+          <a class="navbar-brand" href="/">REARWEUCR- Administrador</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <!--izquierda-->
@@ -77,6 +77,9 @@
     
 
     <div class="container">
+    
+
+
     @yield('content')
 
 

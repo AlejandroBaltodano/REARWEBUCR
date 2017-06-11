@@ -1,10 +1,5 @@
 @extends('layouts.masterAdministradores')
-
-
-
 @section('content')
-
-
 <div>
   <a class="btn btn-primary" href="/administradores/create">Nuevo Profesor</a>
 </div>
@@ -37,6 +32,5 @@
 </table>
 
 </div>
-
 
 @endsection

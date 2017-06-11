@@ -16,12 +16,13 @@
 // aqui van las rutas para que se protejan y sean ingresadas despues de iniciar sesion
 Route::group(['middleware' => 'auth'], function () {
 
+
+//principal controller
 Route::get('/', 'Principalcontroller@index');
 
 //administradores
 Route::get('administradores/listaprofesores', 'Administradorcontroller@listaProfesores');
 Route::get('administradores/listaestudiantes', 'Administradorcontroller@listaEstudiantes');
-
 Route::resource('administradores','Administradorcontroller');
       
  });
