@@ -24,8 +24,9 @@ Route::get('/', 'Principalcontroller@index');
 Route::get('administradores/listaprofesores', 'Administradorcontroller@listaProfesores');
 Route::get('administradores/listaestudiantes', 'Administradorcontroller@listaEstudiantes');
 Route::resource('administradores','Administradorcontroller');
-      
- });
+
+Route::post('/','EstudiantesController@GuardarArchivo');
+});
 
 
 

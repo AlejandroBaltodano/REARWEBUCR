@@ -43,6 +43,11 @@ return [
 
     'disks' => [
 
+        'ArchivosREARWEBUCR' => [
+            'driver' => 'local',
+            'root' => storage_path('ArchivosREARWEBUCR'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
