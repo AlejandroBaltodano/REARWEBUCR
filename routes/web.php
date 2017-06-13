@@ -26,6 +26,11 @@ Route::get('administradores/listaestudiantes', 'Administradorcontroller@listaEst
 Route::resource('administradores','Administradorcontroller');
 
 Route::post('/','EstudiantesController@GuardarArchivo');
+Route::get('/','EstudiantesController@MostrarArchivosEstudiante');
+
+    Route::get('/{nombreArchivo}','EstudiantesController@DescargarArchivos');
+    Route::get('Archivos/subirArchivo','EstudiantesController@IrAsubirArchivo');
+
 });
 
 

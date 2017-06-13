@@ -10,7 +10,12 @@ class Archivo extends Model
     protected $primaryKey= 'id';
 
     protected $fillable = [
-   'Descripcion','NombreDelArchivo','UrlArchivo'
+   'carnetEstudiante','Descripcion','NombreDelArchivo','UrlArchivo'
     ];
 
+    public function archivosEstudiante(){
+
+        return $this->belongsTo('App\User','user_id','id');
+
+    }
 }

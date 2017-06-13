@@ -4,18 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArchivosTable extends Migration
+class Archivo extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('archivos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('carnetEstudiante')->nullable();
+            $table->string('user_id')->nullable();
             $table->text('Descripcion');
             $table->string('NombreDelArchivo');
             $table->string('UrlArchivo');

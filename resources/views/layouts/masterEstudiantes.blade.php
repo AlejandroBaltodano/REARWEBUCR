@@ -76,8 +76,6 @@
 
     <div class="container">
 
-    @include('Archivos.subirArchivo')
-    
     @yield('content')
 
     <div class="copyright text-center">
