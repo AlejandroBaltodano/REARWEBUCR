@@ -29,12 +29,12 @@ class EstudiantesController extends Controller
             if( $ArchivoNuevo->save()) {
 
 
-            return redirect('/');
+            return back();
         }
     }}
 
     public function MostrarArchivosEstudiante(){
-        $UserEstudiante= User::find(Auth::user()->id);
+        $UserEstudiante= Auth::user();
 
         return view('Estudiante/IndexEstudiante', compact('UserEstudiante'));
     }

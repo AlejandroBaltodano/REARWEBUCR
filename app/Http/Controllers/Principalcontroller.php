@@ -24,8 +24,10 @@ class Principalcontroller extends Controller
 
     	}else{
 
-    		return view('layouts\masterEstudiantes');
-    	}
+            $UserEstudiante= Auth::user();
+            return view('Estudiante/IndexEstudiante', compact('UserEstudiante'));
+
+        }
 
 
         

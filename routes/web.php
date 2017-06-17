@@ -25,15 +25,15 @@ Route::get('administradores/listaprofesores', 'Administradorcontroller@listaProf
 Route::get('administradores/listaestudiantes', 'Administradorcontroller@listaEstudiantes');
 Route::resource('administradores','Administradorcontroller');
 
-Route::post('/','EstudiantesController@GuardarArchivo');
-Route::get('/','EstudiantesController@MostrarArchivosEstudiante');
 
-    Route::get('/{nombreArchivo}','EstudiantesController@DescargarArchivos');
-    Route::get('Archivos/subirArchivo','EstudiantesController@IrAsubirArchivo');
+Route::post('/estudiantes/guardarArchivo','EstudiantesController@GuardarArchivo');
+Route::get('/estudiantes/index','EstudiantesController@MostrarArchivosEstudiante');
+
+
+    Route::get('/estudiantes/index/{nombreArchivo}','EstudiantesController@DescargarArchivos');
+    Route::get('estudiantes/Archivos/subirArchivo','EstudiantesController@IrAsubirArchivo');
 
 });
-
-
 
 Auth::routes();
 

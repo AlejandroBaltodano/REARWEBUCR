@@ -43,25 +43,24 @@
                 </div>
             </div>
 
-            <button onclick="window.location.href='Archivos/subirArchivo'">Subir Archivos</button>
+            <button onclick="window.location.href='estudiantes/Archivos/subirArchivo'">Subir Archivos</button>
+
 
             <div class="row">
+
                 @foreach($UserEstudiante->Archivos as $archivo)
 
 
-                        <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="portfolio-item">
                             <p style="color: black; font-size:36px "><i class="fa fa-file-word-o" style="font-size:36px"> {{$archivo->NombreDelArchivo}}</i>
                             <div class="portfolio-details text-center">
                                 <h4>  {{$archivo->Descripcion}}
-                                    <br><a href="/{{$archivo->UrlArchivo}}" data-title="Ir al Archivo"><i class="fa fa-external-link"></i></a>
+                                    <br><a href="/estudiantes/index/{{$archivo->UrlArchivo}}" data-title="Ir al Archivo"><i class="fa fa-external-link"></i></a>
                                 </h4></div>
                         </div>
                     </div>
-                     @endforeach
-
-
-
+                @endforeach
 
             </div><!-- /.row -->
         </div>

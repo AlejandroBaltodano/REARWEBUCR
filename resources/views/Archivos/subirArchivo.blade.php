@@ -7,7 +7,7 @@
                 <div class="panel-heading">Subir Archivo</div>
                 <div class="panel-body">
 
-					<form enctype='multipart/form-data' role="form" METHOD="post" action="{{url('/')}}" >
+					<form enctype='multipart/form-data' role="form" METHOD="post" action="{{url('/estudiantes/guardarArchivo')}}" >
 						{{csrf_field()}}
 						<div class="form-group">
 							<label for="NombreDelArchivo">Nombre del archivo
