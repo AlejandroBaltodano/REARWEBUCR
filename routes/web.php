@@ -21,9 +21,20 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/', 'Principalcontroller@index');
 
 //administradores
-Route::get('administradores/listaprofesores', 'Administradorcontroller@listaProfesores');
-Route::get('administradores/listaestudiantes', 'Administradorcontroller@listaEstudiantes');
+Route::get('/administradores/listaprofesores', 'Administradorcontroller@listaProfesores');
+Route::get('/administradores/listaestudiantes', 'Administradorcontroller@listaEstudiantes');
+//rutas para mantenimiento profesores -> a cargo del administrador
+Route::get('/administradores/{idProfesor}/editarprofesores', 'Administradorcontroller@editProfesor');
+Route::put('/administradores/{idProfesor}', 'Administradorcontroller@updateProfesor');
+Route::delete('/administradores/{idProfesor}', 'Administradorcontroller@destroyProfesor');
+//rutas para mantenimiento estudiantes -> a cargo del administrador
+Route::get('/administradores/{idEstudiante}/editarestudiantes', 'Administradorcontroller@editEstudiante');
+Route::put('/administradores/{idEstudiante}', 'Administradorcontroller@updateEstudiante');
+Route::delete('/administradores/{idEstudiante}', 'Administradorcontroller@destroyEstudiante');
+
+
 Route::resource('administradores','Administradorcontroller');
+
 
 
 Route::post('/estudiantes/guardarArchivo','EstudiantesController@GuardarArchivo');
