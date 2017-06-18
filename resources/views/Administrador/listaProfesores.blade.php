@@ -1,7 +1,7 @@
 @extends('layouts.masterAdministradores')
 @section('content')
 <div>
-  <a class="btn btn-primary" href="/administradores/create">Nuevo Profesor</a>
+<button onclick="window.location.href='/administradores/create'" style="border: none; background: none"><i class="fa fa-plus" style="font-size:25px"></i></button>
 </div>
 </br>
 <div>
@@ -20,8 +20,9 @@
       <td>{{$item->cedula}}</td>
       <td>{{$item->email}}</td>
 
-      <td><a href="/administradores/{{$item->id}}/editarprofesores" class="btn btn-warning btn-xs">Editar</a>|<button class="btn btn-danger btn-xs" type="submit" form="form-delete" formaction="/administradores/{{$item->id}}">Eliminar</button>
+      <td><a href="/administradores/{{$item->id}}/editarprofesores"  class="fa fa-pencil" style="font-size:20px"></a> | <button style="border: none; background: none;font-size:20px" type="submit" form="form-delete" formaction="/administradores/{{$item->id}}" class="fa fa-trash-o"></button>
 </td>
+
           @endif
           
     </tr>

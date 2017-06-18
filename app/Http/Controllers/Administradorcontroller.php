@@ -40,10 +40,33 @@ public function store(Request $requests){
   return redirect('administradores/listaprofesores');
 }
 
+public function editAdministrador($idAdmin){
+    $admin= User::find($idAdmin);
+
+   return view('Administrador\edit', compact('admin'));
+
+}
+public function updateAdmin(Request $requests, $idAdmin){
+
+$admin = User::find($idAdmin);
+
+          $admin->name = $requests['name'];
+             $admin->email = $requests['email'];
+             $admin->IdRolusuario = $requests['IdRolusuario'];
+             $admin->carnetEstudiante= $requests['carnetEstudiante'];
+             $admin->cedula = $requests['cedula'];
+             $admin->save();
+
+             return redirect('/administradores/listaprofesores');
+    
+
+
+}
+
  public function editProfesor($idProfesor){
     $profesor= User::find($idProfesor);
 
-   return view('Profesor\edit', compact('profesor'));
+   return view('Administrador\editProfesor', compact('profesor'));
 
 }
 public function updateProfesor(Request $requests, $idProfesor){

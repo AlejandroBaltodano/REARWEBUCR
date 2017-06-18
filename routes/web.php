@@ -27,6 +27,9 @@ Route::get('/administradores/listaestudiantes', 'Administradorcontroller@listaEs
 Route::get('/administradores/{idProfesor}/editarprofesores', 'Administradorcontroller@editProfesor');
 Route::put('/administradores/{idProfesor}', 'Administradorcontroller@updateProfesor');
 Route::delete('/administradores/{idProfesor}', 'Administradorcontroller@destroyProfesor');
+Route::get('/administradores/{idAdmin}/editaradministrador', 'Administradorcontroller@editAdministrador');
+Route::put('/administradores/{idAdmin}/admin', 'Administradorcontroller@updateAdmin');
+
 //rutas para mantenimiento estudiantes -> a cargo del administrador
 Route::get('/administradores/{idEstudiante}/editarestudiantes', 'Administradorcontroller@editEstudiante');
 Route::put('/administradores/{idEstudiante}', 'Administradorcontroller@updateEstudiante');
