@@ -12,17 +12,22 @@ class EstudiantesController extends Controller
 {
     public function GuardarArchivo(Request $requests){
 
-        if($requests->hasFile('ubicacionArchivo')){
-        $ArchivoNuevo= new Archivo();
-        $ArchivoNuevo->Id=$requests->input('Id');
-        $ArchivoNuevo->user_id=Auth::user()->id;
-        $ArchivoNuevo->Descripcion=$requests->input('Descripcion');
-        $ArchivoNuevo->NombreDelArchivo=$requests->input('NombreDelArchivo');
-
-        $archivoSubido=$requests->file('ubicacionArchivo');
+        if($requests->hasFile('ubicacionArchivo')) {
+            $archivoSubido=$requests->file('ubicacionArchivo');
             $NombreCorto = explode(".", $archivoSubido->getClientOriginalName());
             $extension = end($NombreCorto);
-            $rutaArchivo=Auth::user()->carnetEstudiante.'_'.$requests->input('NombreDelArchivo').".".$extension;
+            $ArchivoNuevo = new Archivo();
+            $ArchivoNuevo->Id = $requests->input('Id');
+            $ArchivoNuevo->user_id = Auth::user()->id;
+            $ArchivoNuevo->Descripcion = $requests->input('Descripcion');
+            if (is_null($requests->input('NombreDelArchivo'))){
+                $ArchivoNuevo->NombreDelArchivo =  $archivoSubido->getClientOriginalName();
+
+        }else {
+                $ArchivoNuevo->NombreDelArchivo = $requests->input('NombreDelArchivo').".".$extension;
+            }
+
+            $rutaArchivo=Auth::user()->carnetEstudiante.'_'.$ArchivoNuevo->NombreDelArchivo;
         Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo,file_get_contents($archivoSubido->getRealPath()) );
             $ArchivoNuevo->UrlArchivo=$rutaArchivo;
 

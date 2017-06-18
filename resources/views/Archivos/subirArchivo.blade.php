@@ -12,13 +12,13 @@
 						<div class="form-group">
 							<label for="NombreDelArchivo">Nombre del archivo
 
-								<input class="form-control" name="NombreDelArchivo">
+								<input name="NombreDelArchivo">
 							</label>
 						</div>
 						<div class="form-group">
 
 						  <label for="ubicacionArchivo">Seleccione archivo</label>
-					    <input type="file" class="form-control" name="ubicacionArchivo">
+					    <input type="file" class="form-control" name="ubicacionArchivo" style="border: none;">
 					  </div>
 
 						<div class="form-group">

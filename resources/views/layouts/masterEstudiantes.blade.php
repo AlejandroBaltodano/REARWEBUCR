@@ -38,12 +38,12 @@
             <span class="icon-bar"></span>
           </button>
          
-          <a class="navbar-brand" href="/">REARWEUCR- Estudiante</a>
+          <a class="navbar-brand" href="/estudiantes/index">REARWEUCR- Estudiante</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <!--izquierda-->
           <ul class="nav navbar-nav">
-            <li><a href="#">Lista de Archivos</a></li>  
+            <li><a href="/estudiantes/index">Lista de Archivos</a></li>
           </ul>
           <!--derecha-->
           <ul class="nav navbar-nav navbar-right">
@@ -102,5 +102,26 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/public/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/public/css/animate.css" rel="stylesheet">
+  <link href="/public/css/style.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <script src="/public/js/jquery-2.1.1.min.js"></script>
+  <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/public/js/jquery.appear.js"></script>
+  <script src="/public/js/contact_me.js"></script>
+  <script src="/public/js/jqBootstrapValidation.js"></script>
+  <script src="/public/js/modernizr.custom.js"></script>
+  <script src="/public/js/script.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
   </body>
 </html>
