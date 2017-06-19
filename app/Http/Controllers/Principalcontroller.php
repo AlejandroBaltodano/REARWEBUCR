@@ -16,7 +16,9 @@ class Principalcontroller extends Controller
 
     	if ($user->IdRolusuario === 1) {
 
-    		return view('layouts\masterAdministradores');
+    		$usuarios= User::all();
+     
+    return view('Administrador\listaProfesores', compact('usuarios'));
 
     	}elseif ($user->IdRolusuario === 2) {
 

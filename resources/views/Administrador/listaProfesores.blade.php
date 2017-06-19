@@ -1,10 +1,11 @@
 @extends('layouts.masterAdministradores')
 @section('content')
+
 <div>
 <button onclick="window.location.href='/administradores/create'" style="border: none; background: none"><i class="fa fa-plus" style="font-size:25px"></i></button>
 </div>
 </br>
-<div>
+
 	<table class="table table-striped">
   <thead>
     <th>NOMBRE COMPLETO</th>
