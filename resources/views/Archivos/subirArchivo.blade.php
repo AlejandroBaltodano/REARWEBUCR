@@ -25,6 +25,18 @@
 					    <label for="Descripcion">Descripcion</label>
 					    <textarea class="form-control" name="Descripcion" rows="3"></textarea>
 					  </div>
+						<script language="JavaScript">
+							function verificacion() {
+							    @foreach($UserEstudiante->Archivos as $archivo)
+							    @if($archivo->NombreDelArchivo==value())
+								if(confirm('el archivo {{$archivo->NombreDelArchivo}} ya existe deseas sobreescribirlo?')){document.subirArchivo.submit()}
+                            else{ alert('Operacion Cancelada');}
+								@endif
+										@endforeach
+
+                            }
+
+						</script>
 					  <button type="submit" class="btn btn-primary">Subir</button>
 
 					</form>

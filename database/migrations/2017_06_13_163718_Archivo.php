@@ -18,7 +18,7 @@ class Archivo extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->text('Descripcion');
-            $table->string('NombreDelArchivo');
+            $table->string('NombreDelArchivo')->unique();
             $table->string('UrlArchivo');
             $table->timestamps();
         });

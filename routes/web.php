@@ -40,13 +40,15 @@ Route::resource('administradores','Administradorcontroller');
 
 
 
-Route::post('/estudiantes/guardarArchivo','EstudiantesController@GuardarArchivo');
-Route::get('/estudiantes/index','EstudiantesController@MostrarArchivosEstudiante');
+Route::post('/estudiantes/guardarArchivo','ArchivoController@GuardarArchivo');
+Route::get('/estudiantes/index','ArchivoController@MostrarArchivosEstudiante');
 
 
-    Route::get('/estudiantes/index/{nombreArchivo}','EstudiantesController@DescargarArchivos');
-    Route::get('estudiantes/Archivos/subirArchivo','EstudiantesController@IrAsubirArchivo');
-
+    Route::get('/estudiantes/index/{nombreArchivo}','ArchivoController@DescargarArchivos');
+    Route::get('estudiantes/Archivos/subirArchivo','ArchivoController@IrAsubirArchivo');
+    Route::get("/estudiante/Archivo/editar/{id}",'ArchivoController@editarArchivo');
+    Route::put('/estudiante/Archivo/actualizar/{id}','ArchivoController@Actualizar');
+    Route::get('/estudiantes/Archivos/eliminar/{id}','ArchivoController@Eliminar');
 });
 
 Auth::routes();
