@@ -28,7 +28,7 @@
 						<script language="JavaScript">
 							function verificacion() {
 							    @foreach($UserEstudiante->Archivos as $archivo)
-							    @if($archivo->NombreDelArchivo==value())
+							    @if($archivo->NombreDelArchivo)
 								if(confirm('el archivo {{$archivo->NombreDelArchivo}} ya existe deseas sobreescribirlo?')){document.subirArchivo.submit()}
                             else{ alert('Operacion Cancelada');}
 								@endif
