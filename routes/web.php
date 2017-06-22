@@ -31,8 +31,8 @@ Route::get('/administradores/{idAdmin}/editaradministrador', 'Administradorcontr
 Route::put('/administradores/{idAdmin}/admin', 'Administradorcontroller@updateAdmin');
 
 //rutas para mantenimiento estudiantes -> a cargo del administrador
-Route::get('/administradores/{idEstudiante}/editarestudiantes', 'Administradorcontroller@editEstudiante');
-Route::put('/administradores/{idEstudiante}', 'Administradorcontroller@updateEstudiante');
+Route::get('/administradores/{idEstudiante}/verlistaArchivosEstudiante', 'Administradorcontroller@verArchivosEstudiante');
+Route::get('/administradores/{idArchivo}/archivo', 'Administradorcontroller@EliminarArchivo');
 Route::delete('/administradores/{idEstudiante}', 'Administradorcontroller@destroyEstudiante');
 
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Archivo;
+use Illuminate\Support\Facades\Storage;
 
 class Administradorcontroller extends Controller
 {
@@ -86,14 +88,6 @@ $profesor = User::find($idProfesor);
 
 }
 
-public function editEstudiante($idEstudiante){
-
-
-}
-public function updateEstudiante(Request $requests, $idProfesor){
-
-
-}
 
 public  function destroyProfesor($idProfesor){
 $profesor = User::find($idProfesor);
@@ -111,10 +105,19 @@ public  function destroyEstudiante($idEstudiante){
 public function verArchivosEstudiante($idEstudiante){
 
     $estudiante = User::find($idEstudiante);
-    $archivos= $estudiante->Archivos;
+
+   return view('Administrador\listaArchivosEstudiante', compact('estudiante'));
 
 
 }
+    public function EliminarArchivo($idArchivo){
+
+        $archivoEliminar= Archivo::find($idArchivo);
+        Storage::disk('ArchivosREARWEBUCR')->delete($archivoEliminar->UrlArchivo);
+        $archivoEliminar -> delete();
+        return back();//redirect('/estudiantes/index');
+
+    }
 
 
 

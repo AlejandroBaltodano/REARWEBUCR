@@ -18,7 +18,7 @@
       <td>{{$item->cedula}}</td>
       <td>{{$item->email}}</td>
 
-      <td><a href="" class="fa fa-file" style="font-size:20px"></a> | <a href="" style="font-size:20px" class="fa fa-pencil"></a> | <button style="border: none; background: none;font-size:20px" type="submit" form="form-delete" formaction="" class="fa fa-trash-o"></button>
+      <td><a href="/administradores/{{$item->id}}/verlistaArchivosEstudiante" class="fa fa-file" style="font-size:20px"></a> | <button style="border: none; background: none;font-size:20px" type="submit" form="form-delete" formaction="" class="fa fa-trash-o"></button>
 </td>
           @endif
           
