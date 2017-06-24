@@ -1,6 +1,19 @@
 @extends('layouts.masterAdministradores')
 @section('content')
-
+<form action="/administradores/listaprofesores">
+  <div  class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+      <input type="text" name="txtBuscar" class="form-control" placeholder="Ingrese el nombre a buscar..." >
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Buscar por Nombre</button>
+      </span>
+    </div>
+  </div>
+</form>
+  
+</br>
+</br>
+</br>
 <div>
 <button onclick="window.location.href='/administradores/create'" style="border: none; background: none"><i class="fa fa-plus" style="font-size:25px"></i></button>
 </div>
@@ -21,7 +34,8 @@
       <td>{{$item->cedula}}</td>
       <td>{{$item->email}}</td>
 
-      <td><a href="/administradores/{{$item->id}}/editarprofesores"  class="fa fa-pencil" style="font-size:20px"></a> | <button style="border: none; background: none;font-size:20px" type="submit" form="form-delete" formaction="/administradores/{{$item->id}}" class="fa fa-trash-o"></button>
+      <td><a href="/administradores/{{$item->id}}/editarprofesores"  class="fa fa-pencil" style="font-size:20px"></a> | <button style="border: none; background: none;font-size:20px" type="button" class="fa fa-trash-o" onclick="if(confirm('Deseas eliminar el profesor {{$item->name}}?')){window.location.href='/administradores/{{$item->id}}/profesor'}
+                            else{ alert('Operacion Cancelada');}"></button>
 </td>
 
           @endif
@@ -33,9 +47,6 @@
 </table>
 
 </div>
- <form id="form-delete" method="POST">
-             {{csrf_field()}}
-             <input type="hidden" name="_method" value="DELETE"></input>
-        </form>
+
 
 @endsection

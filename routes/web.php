@@ -24,20 +24,24 @@ Route::get('/', 'Principalcontroller@index');
 Route::get('/administradores/listaprofesores', 'Administradorcontroller@listaProfesores');
 Route::get('/administradores/listaestudiantes', 'Administradorcontroller@listaEstudiantes');
 //rutas para mantenimiento profesores -> a cargo del administrador
+
 Route::get('/administradores/{idProfesor}/editarprofesores', 'Administradorcontroller@editProfesor');
 Route::put('/administradores/{idProfesor}', 'Administradorcontroller@updateProfesor');
-Route::delete('/administradores/{idProfesor}', 'Administradorcontroller@destroyProfesor');
+Route::get('/administradores/{idProfesor}/profesor', 'Administradorcontroller@destroyProfesor');
+//rutas para mantenimiento administrador
 Route::get('/administradores/{idAdmin}/editaradministrador', 'Administradorcontroller@editAdministrador');
 Route::put('/administradores/{idAdmin}/admin', 'Administradorcontroller@updateAdmin');
 
 //rutas para mantenimiento estudiantes -> a cargo del administrador
 Route::get('/administradores/{idEstudiante}/verlistaArchivosEstudiante', 'Administradorcontroller@verArchivosEstudiante');
 Route::get('/administradores/{idArchivo}/archivo', 'Administradorcontroller@EliminarArchivo');
-Route::delete('/administradores/{idEstudiante}', 'Administradorcontroller@destroyEstudiante');
-
-
+Route::get('/administradores/{idEstudiante}/eliminarestudiante', 'Administradorcontroller@destroyEstudiante');
 Route::resource('administradores','Administradorcontroller');
 
+//rutas para buscar-> a cargo del administrador
+//Route::get('/administradores/buscarprofesor','Administradorcontroller@buscarProfesor');
+
+//fin rutas administradores
 
 
 Route::post('/estudiantes/guardarArchivo','ArchivoController@GuardarArchivo');

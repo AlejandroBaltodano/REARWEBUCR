@@ -18,7 +18,9 @@
       <td>{{$item->cedula}}</td>
       <td>{{$item->email}}</td>
 
-      <td><a href="/administradores/{{$item->id}}/verlistaArchivosEstudiante" class="fa fa-file" style="font-size:20px"></a> | <button style="border: none; background: none;font-size:20px" type="submit" form="form-delete" formaction="" class="fa fa-trash-o"></button>
+      <td><a href="/administradores/{{$item->id}}/verlistaArchivosEstudiante" class="fa fa-file" style="font-size:20px"></a> | <button style="border: none; background: none;font-size:20px" type="button"  class="fa fa-trash-o" 
+      onclick="if(confirm('Deseas eliminar el estudiante {{$item->name}}?')){window.location.href='/administradores/{{$item->id}}/eliminarestudiante'}
+                            else{ alert('Operacion Cancelada');}"></button>
 </td>
           @endif
           
@@ -30,8 +32,4 @@
 
 </div>
 
- <form id="form-delete" method="POST">
-             {{csrf_field()}}
-             <input type="hidden" name="_method" value="DELETE"></input>
-        </form>
 @endsection

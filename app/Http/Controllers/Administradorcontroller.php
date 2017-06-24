@@ -11,8 +11,10 @@ class Administradorcontroller extends Controller
 {
 
 	
-    public function listaProfesores(){
-    	$usuarios= User::all();
+    public function listaProfesores(Request $requests){
+
+$nombreProfesor= $requests->get('txtBuscar');
+    	$usuarios= User::name($nombreProfesor)->orderBy('id','DESC')->paginate();
      
     return view('Administrador\listaProfesores', compact('usuarios'));
     		
@@ -20,7 +22,8 @@ class Administradorcontroller extends Controller
 
     public function listaEstudiantes(){
     	$usuarios= User::all();
-    return view('Administrador\listaEstudiantes', compact('usuarios'));
+        return view('Administrador\listaEstudiantes', compact('usuarios'));
+    
     		
     	}
 public function create(){
@@ -99,6 +102,12 @@ return back();
 
 public  function destroyEstudiante($idEstudiante){
 
+$estudiante = User::find($idEstudiante);
+$estudiante->delete();
+return back();
+
+
+
 
 }
 
@@ -118,6 +127,7 @@ public function verArchivosEstudiante($idEstudiante){
         return back();//redirect('/estudiantes/index');
 
     }
+
 
 
 

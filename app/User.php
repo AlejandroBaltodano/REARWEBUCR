@@ -43,5 +43,13 @@ protected $primaryKey= 'id';
         return $this->hasMany('App\Archivo');
 
     }
+//este metodo me sirve para hacer la busqueda dinamica por nombre
+    public function scopeName($query, $name){
+if (trim($name) != "") {
+
+ $query->where('name',"LIKE", "%$name%");
+}
+   
+    }
 
 }
