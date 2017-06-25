@@ -51,7 +51,7 @@ Route::get('/estudiantes/index','ArchivoController@MostrarArchivosEstudiante');
     Route::get('/estudiantes/index/{nombreArchivo}','ArchivoController@DescargarArchivos');
     Route::get('estudiantes/Archivos/subirArchivo','ArchivoController@IrAsubirArchivo');
     Route::get("/estudiante/Archivo/editar/{id}",'ArchivoController@editarArchivo');
-    Route::put('/estudiante/Archivo/actualizar/{id}','ArchivoController@Actualizar');
+    Route::post('/estudiante/Archivo/actualizar/{id}','ArchivoController@Actualizar');
     Route::get('/estudiantes/Archivos/eliminar/{id}','ArchivoController@Eliminar');
     Route::get('/Profesro/ArchivosEstudiante/{id}',"ProfesorController@ListarArchivosEstudiante");
 });

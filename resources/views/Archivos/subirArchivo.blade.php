@@ -25,18 +25,16 @@
 					    <label for="Descripcion">Descripcion</label>
 					    <textarea class="form-control" name="Descripcion" rows="3"></textarea>
 					  </div>
-						<script language="JavaScript">
-							function verificacion() {
-							    @foreach($UserEstudiante->Archivos as $archivo)
-							    @if($archivo->NombreDelArchivo)
-								if(confirm('el archivo {{$archivo->NombreDelArchivo}} ya existe deseas sobreescribirlo?')){document.subirArchivo.submit()}
-                            else{ alert('Operacion Cancelada');}
-								@endif
-										@endforeach
-
-                            }
-
+						<script>
+							function Reemplazar() {
+                                @foreach($User->Archivos as $archivo)
+                                    if('{{$archivo->NombreDelArchivo=='ArchivoParaProfesor'.'.'.'png'}}'){
+                                    if(confirm('El archivo{{$archivo->NombreDelArchivo}} ya existe deseas reemplazarlo?')){ }
+                                    else{ alert('Operacion Cancelada');}
+ 								}@endforeach
+                                }
 						</script>
+						<input style="font-size:20px; border: none; background: none;color: #337ab7" class="button fa fa-upload" name="button" type='button' onclick="Reemplazar();">
 					  <button type="submit" class="btn btn-primary">Subir</button>
 
 					</form>
