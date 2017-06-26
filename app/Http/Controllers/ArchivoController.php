@@ -51,12 +51,14 @@ class ArchivoController extends Controller
     public function MostrarArchivosEstudiante(Request $requests){
         $UserEstudiante= Auth::user();
         $Archivos=$UserEstudiante->Archivos;
+
         if(is_null($requests->get('txtBuscar'))){
-            return view('Estudiante/IndexEstudiante', compact('Archivos'));
+            $txtBuscarValor='';
+            return view('Estudiante/IndexEstudiante', compact('Archivos', 'txtBuscarValor'));
         }else{$ArchivosFiltrar= $requests->get('txtBuscar');
             $Archivos = Archivo::where('NombreDelArchivo','like','%'.$ArchivosFiltrar.'%')->get();
-
-            return view('Estudiante/IndexEstudiante', compact('Archivos'));
+            $txtBuscarValor=$requests->get('txtBuscar');
+            return view('Estudiante/IndexEstudiante', compact('Archivos', 'txtBuscarValor'));
         }
         }
 

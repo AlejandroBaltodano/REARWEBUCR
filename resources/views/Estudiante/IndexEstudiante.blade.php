@@ -25,7 +25,7 @@
             <form action="/estudiantes/index" class="pull-right">
                 <div  class="col-md-6 col-md-offset-3">
                     <div class="input-group">
-                        <input type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="width: 250px">
+                        <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="width: 250px">
                         <span class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
       </span>

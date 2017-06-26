@@ -27,8 +27,9 @@ class Principalcontroller extends Controller
         }else{
             $UserEstudiante= Auth::user();
             $Archivos=$UserEstudiante->Archivos;
+            $txtBuscarValor='';
 
-            return view('Estudiante/IndexEstudiante', compact('Archivos'));
+            return view('Estudiante/IndexEstudiante', compact('Archivos', 'txtBuscarValor'));
 
         }
 
