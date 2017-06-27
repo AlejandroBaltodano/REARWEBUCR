@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+                <div class="panel-heading">Recupera tu cuenta</div>
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -13,8 +13,54 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
+
+<p>Introduce el correo electrónico para restablecer tu cuenta</p>
+
+
+
+                    <form  role="form" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
+
+<!--
+
+class="form-horizontal"
+
+
+-->
+<!--
+        <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                        <input id="Correo" type="mail" class="form-control" name="Correo" placeholder="Correo Electrónico">
+                                    </div>
+                                        </br>
+-->
+
+
+      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+
+      <div class="input-group">
+<span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+
+                                <div class="form-group has-success">
+                                  
+
+                                <input id="email" type="email" class="form-control" name="email" placeholder="Correo Electrónico"value="{{ old('email') }}" required>
+</div>
+</div>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        
+
+
+
+
+
+
+<!--
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -30,10 +76,12 @@
                             </div>
                         </div>
 
+-->                       
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
+                                    Enviar link al correo
                                 </button>
                             </div>
                         </div>
