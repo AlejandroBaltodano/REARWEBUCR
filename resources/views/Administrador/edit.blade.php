@@ -1,6 +1,7 @@
 @extends('layouts.masterAdministradores')
 
 @section('content')
+  @include('partials.errores')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -55,6 +56,40 @@
                                 @endif
                             </div>
                         </div>
+                         <div class="form-group{{ $errors->has('passwordActual') ? ' has-error' : '' }}">
+                            <label for="passwordActual" class="col-md-4 control-label">Contraseña Actual</label>
+
+                            <div class="col-md-6">
+                                <input id="passwordActual" type="password" class="form-control" name="passwordActual" required>
+
+                                @if ($errors->has('passwordActual'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('passwordActual') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
 
                         
                                 <input id="IdRolusuario" type="hidden" class="form-control" name="IdRolusuario" value="1">
@@ -73,5 +108,7 @@
             </div>
         </div>
     </div>
+
 </div>
+
 @endsection

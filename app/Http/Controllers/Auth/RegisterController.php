@@ -52,7 +52,9 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'carnetEstudiante'=>'max:6',
-            'cedula'=>'required|string|min:9'
+            'cedula'=>'required|string|min:9',
+            'passwordActual' => 'required|string|min:6|confirmed',
+
         ]);
     }
 

@@ -54,15 +54,40 @@ public function editAdministrador($idAdmin){
 public function updateAdmin(Request $requests, $idAdmin){
 
 $admin = User::find($idAdmin);
+$contraseñaActual= $requests->get('passwordActual');
+$contraseñaBD= $admin->password;
+$contraseña= $requests->get('password');
+$confirmarContraseña= $requests->get('password_confirmation');
 
-          $admin->name = $requests['name'];
+if (\Hash::check($contraseñaActual, $contraseñaBD))
+{
+    if ($contraseña === $confirmarContraseña) {
+
+             $admin->name = $requests['name'];
              $admin->email = $requests['email'];
              $admin->IdRolusuario = $requests['IdRolusuario'];
              $admin->carnetEstudiante= $requests['carnetEstudiante'];
              $admin->cedula = $requests['cedula'];
+             $admin->password = bcrypt($contraseña);
              $admin->save();
 
              return redirect('/administradores/listaprofesores');
+    }else{
+
+
+        session()->flash("message", "Los campos Contraseña y Confirmar Contraseña deben de coincidir");
+         return back();
+    }
+
+}else{
+
+
+        session()->flash("message", "Contraseña Actual Incorrecta");
+        return back();
+    }
+
+
+          
     
 
 
@@ -77,6 +102,7 @@ $admin = User::find($idAdmin);
 public function updateProfesor(Request $requests, $idProfesor){
 
 $profesor = User::find($idProfesor);
+
 
           $profesor->name = $requests['name'];
              $profesor->email = $requests['email'];
