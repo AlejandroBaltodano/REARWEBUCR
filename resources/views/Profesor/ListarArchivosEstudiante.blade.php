@@ -20,6 +20,16 @@
 
             </div>
         </div>
+        <form action='{{$UserEstudiante->id}}' class="pull-right">
+            <div  class="col-md-6 col-md-offset-3">
+                <div class="input-group">
+                    <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="width: 250px">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </span>
+                </div>
+            </div>
+        </form>
 
 
         <div class="row">
@@ -32,7 +42,7 @@
                 </thead>
 
 
-                @foreach($UserEstudiante->Archivos as $archivo)
+                @foreach($Archivos as $archivo)
                     <tr>
                         <td>{{$archivo->NombreDelArchivo}}</td>
                         <td>{{$archivo->Descripcion}}</td>

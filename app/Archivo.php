@@ -10,7 +10,7 @@ class Archivo extends Model
     protected $primaryKey= 'id';
 
     protected $fillable = [
-   'carnetEstudiante','Descripcion','NombreDelArchivo','UrlArchivo'
+   'user_id','Descripcion','NombreDelArchivo','UrlArchivo'
     ];
 
     public function archivosEstudiante(){

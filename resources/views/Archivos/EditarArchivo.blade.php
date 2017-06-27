@@ -1,14 +1,37 @@
-@extends("layouts.masterEstudiantes")
-@section('content')
+@extends('layouts.masterEstudiantes')
 
-    <div class="title m-b-md">
-        Editando archivo {{$archivo->NombreDelArchivo}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Subir Archivo</div>
+                <div class="panel-body">
+
+                        <form enctype='multipart/form-data' role="form" METHOD="post" action="{{url("/estudiante/Archivo/actualizar/$archivo->id")}}" >
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <label for="NombreDelArchivo">Nombre del archivo
+
+                                <input name="NombreDelArchivo" value="{{explode('.',$archivo->NombreDelArchivo)[0]}}">
+                            </label>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="ubicacionArchivo">Seleccione archivo</label>
+                            <input type="file" class="form-control" name="ubicacionArchivo" style="border: none;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Descripcion">Descripcion</label>
+                            <textarea class="form-control" name="Descripcion" rows="3" >{{$archivo->Descripcion}}</textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Subir</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <form action="/estudiante/Archivo/actualizar/{{$archivo->id}}" method="POST">
-        {{csrf_field()}}
-        <input type="hidden" name="_method" value="PUT">
-        <p><input type="text" name="nombre" placeholder="Ingrese Nombre..." value="{{$archivo->NombreDelArchivo}}"></p>
-        <p><textarea  name="Descripcion" placeholder="Ingrese Descripcion...">{{$archivo->Descripcion}}</textarea></p>
-        <p><input type="submit" value="Guardar"></p>
-    </form>
-@endsection
+</div>

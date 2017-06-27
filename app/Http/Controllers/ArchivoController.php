@@ -36,7 +36,7 @@ class ArchivoController extends Controller
                     $archivo= Archivo::find($archivo->id);
                     $archivo->delete();
 
-                    $this->GuardarArchivo($requests);
+                   //$this->GuardarArchivo($requests);
 
             }
             }
@@ -48,15 +48,23 @@ class ArchivoController extends Controller
 
         }}
 
-    public function MostrarArchivosEstudiante(){
+    public function MostrarArchivosEstudiante(Request $requests){
         $UserEstudiante= Auth::user();
+        $Archivos=$UserEstudiante->Archivos;
 
-        return view('Estudiante/IndexEstudiante', compact('UserEstudiante'));
-    }
+        if(is_null($requests->get('txtBuscar'))){
+            $txtBuscarValor='';
+            return view('Estudiante/IndexEstudiante', compact('Archivos', 'txtBuscarValor'));
+        }else{$ArchivosFiltrar= $requests->get('txtBuscar');
+            $Archivos = Archivo::where('NombreDelArchivo','like','%'.$ArchivosFiltrar.'%')->get();
+            $txtBuscarValor=$requests->get('txtBuscar');
+            return view('Estudiante/IndexEstudiante', compact('Archivos', 'txtBuscarValor'));
+        }
+        }
 
     public function IrAsubirArchivo(){
-        $UserEstudiante= Auth::user();
-        return view('Archivos/subirArchivo', compact('UserEstudiante'));
+        $User= Auth::user();
+        return view('Archivos/subirArchivo', compact('User'));
     }
 
     public function DescargarArchivos($nombreArchivo){
@@ -79,16 +87,40 @@ class ArchivoController extends Controller
 
     }
 
-    public function Actualizar($id){
+    public function Actualizar(Request $requests, $id){
 
 
-        $archivoActualizar= Archivo::find($id);
-        $archivoActualizar->NombreDelArchivo= request('nombre');
-        $archivoActualizar->Descripcion= request('Descripcion');
-        $archivoActualizar->save();
+        if($requests->hasFile('ubicacionArchivo')) {
+            $archivoSubido = $requests->file('ubicacionArchivo');
+            $ArchivoNuevo = new Archivo();
+            $archivo = Archivo::find($id);
+            $NombreCorto = explode(".", $archivoSubido->getClientOriginalName());
+            $extension = end($NombreCorto);
+            $ArchivoNuevo->Id = $requests->input('Id');
+            $ArchivoNuevo->user_id = Auth::user()->id;
+            $ArchivoNuevo->Descripcion = $requests->input('Descripcion');
 
-        return redirect('/estudiantes/index');
-    }
+            if (is_null($requests->input('NombreDelArchivo'))) {
+                $ArchivoNuevo->NombreDelArchivo = $archivoSubido->getClientOriginalName();
+
+            } else {
+                   $ArchivoNuevo->NombreDelArchivo = $requests->input('NombreDelArchivo') . "." . $extension;
+                }
+            }
+
+            $rutaArchivo = Auth::user()->carnetEstudiante . '_' . $ArchivoNuevo->NombreDelArchivo;
+            $ArchivoNuevo->UrlArchivo = $rutaArchivo;
+
+            Storage::disk('ArchivosREARWEBUCR')->delete($archivo->UrlArchivo);
+            $archivo->delete();
+
+            Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo, file_get_contents($archivoSubido->getRealPath()));
+            if ($ArchivoNuevo->save()) {
+                return redirect('/estudiantes/index');
+
+            }
+
+            }
     public function Eliminar($id){
 
         $archivoEliminar= Archivo::find($id);

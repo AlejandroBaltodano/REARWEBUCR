@@ -17,7 +17,7 @@ class Archivo extends Migration
         Schema::create('archivos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
-            $table->text('Descripcion');
+            $table->text('Descripcion')->nullable();
             $table->string('NombreDelArchivo')->unique();
             $table->string('UrlArchivo');
             $table->timestamps();
