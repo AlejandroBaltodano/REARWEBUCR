@@ -21,7 +21,7 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
+            &copy; {{ date('Y') }} Creado por: Carlos Reyes, Jose Gomez, Dayana Ruiz, Jesus Gonzales, Moises Salazar.
         @endcomponent
     @endslot
 @endcomponent
