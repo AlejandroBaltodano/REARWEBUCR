@@ -43,9 +43,7 @@ class ArchivoController extends Controller
             Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo,file_get_contents($archivoSubido->getRealPath()) );
             if( $ArchivoNuevo->save()) {
             }
-
-            return back();
-
+            return redirect('/estudiantes/index');
         }}
 
     public function MostrarArchivosEstudiante(Request $requests){
@@ -89,37 +87,51 @@ class ArchivoController extends Controller
 
     public function Actualizar(Request $requests, $id){
 
-
-        if($requests->hasFile('ubicacionArchivo')) {
-            $archivoSubido = $requests->file('ubicacionArchivo');
-            $ArchivoNuevo = new Archivo();
-            $archivo = Archivo::find($id);
-            $NombreCorto = explode(".", $archivoSubido->getClientOriginalName());
-            $extension = end($NombreCorto);
-            $ArchivoNuevo->Id = $requests->input('Id');
-            $ArchivoNuevo->user_id = Auth::user()->id;
-            $ArchivoNuevo->Descripcion = $requests->input('Descripcion');
-
+        $archivoSubido = $requests->file('ubicacionArchivo');
+        $ArchivoViejo = new Archivo();
+        $archivo = Archivo::find($id);
+        $ArchivoViejo->NombreDelArchivo=$archivo->NombreDelArchivo;
+        $ArchivoViejo->UrlArchivo=$archivo->UrlArchivo;
+        if(is_null($archivoSubido)){
+            $archivo->Descripcion = $requests->input('Descripcion');
             if (is_null($requests->input('NombreDelArchivo'))) {
-                $ArchivoNuevo->NombreDelArchivo = $archivoSubido->getClientOriginalName();
 
             } else {
-                   $ArchivoNuevo->NombreDelArchivo = $requests->input('NombreDelArchivo') . "." . $extension;
-                }
+                $archivo->NombreDelArchivo = $requests->input('NombreDelArchivo') . "." .explode('.',$archivo->NombreDelArchivo)[1];
             }
 
-            $rutaArchivo = Auth::user()->carnetEstudiante . '_' . $ArchivoNuevo->NombreDelArchivo;
-            $ArchivoNuevo->UrlArchivo = $rutaArchivo;
+            $rutaArchivo = Auth::user()->carnetEstudiante . '_' . $archivo->NombreDelArchivo;
+            $storage_path = storage_path();
+            $url = $storage_path.'\ArchivosREARWEBUCR\\'.Auth::user()->carnetEstudiante . '_'.$ArchivoNuevo->NombreDelArchivo;
+            Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo, file_get_contents($url));
+            Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoNuevo->UrlArchivo);
+            $archivo->UrlArchivo = $rutaArchivo;
+            $archivo->save();
+            return redirect('/estudiantes/index');
+        }else{
+            if($requests->hasFile('ubicacionArchivo')) {
+                $NombreCorto = explode(".", $archivoSubido->getClientOriginalName());
+                $extension = end($NombreCorto);
+                $archivo->Descripcion = $requests->input('Descripcion');
 
-            Storage::disk('ArchivosREARWEBUCR')->delete($archivo->UrlArchivo);
-            $archivo->delete();
+                if (is_null($requests->input('NombreDelArchivo'))) {
+                    $archivo->NombreDelArchivo = $archivoSubido->getClientOriginalName();
 
+                } else {
+                    $archivo->NombreDelArchivo = $requests->input('NombreDelArchivo') . "." . $extension;
+                }
+            }
+            $rutaArchivo = Auth::user()->carnetEstudiante . '_' . $archivo->NombreDelArchivo;
+            $archivo->UrlArchivo = $rutaArchivo;
+
+            Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoViejo->UrlArchivo);
             Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo, file_get_contents($archivoSubido->getRealPath()));
-            if ($ArchivoNuevo->save()) {
+            if ($archivo->save()) {
                 return redirect('/estudiantes/index');
 
             }
 
+        }
             }
     public function Eliminar($id){
 

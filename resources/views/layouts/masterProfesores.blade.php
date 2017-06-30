@@ -83,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div>&copy; 2017- Todos los derechos reservados. Hecho por: Carlos Alejandro Reyes Baltodano</div>
+                        <div>&copy; 2017- Todos los derechos reservados.</div>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,15 @@
                                 <input name="NombreDelArchivo" value="{{explode('.',$archivo->NombreDelArchivo)[0]}}">
                             </label>
                         </div>
-                        <div class="form-group">
+                            <div class="form-group">
+
+                            <label for="ArchivoEditar">Usted esta editando :
+                                <a href="/estudiantes/index/{{$archivo->UrlArchivo}}" >{{$archivo->NombreDelArchivo}}</a>
+                                &nbsp &nbsp &nbsp<a onclick="document.getElementById('EditarSubir').style='block'" type="button" title="Sustituir Archivo"><i class="fa fa-exchange"></i></a>
+                            </label>
+                </div>
+
+                <div class="form-group" style="display: none" id="EditarSubir">
 
                             <label for="ubicacionArchivo">Seleccione archivo</label>
                             <input type="file" class="form-control" name="ubicacionArchivo" style="border: none;">
