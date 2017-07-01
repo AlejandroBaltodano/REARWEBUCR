@@ -31,8 +31,8 @@
                             <td>{{$archivo->Descripcion}}</td>
                             <td>{{$archivo->created_at}}</td>
 
-                        <td><a href="/estudiantes/index/{{$archivo->UrlArchivo}}" class="fa fa-cloud-download" style="font-size:20px"></a>
-                                     <button style="font-size:20px; border: none; background: none;color: #337ab7" class="fa fa-trash-o" name="button" type='button' onclick="if(confirm('Deseas eliminar el archivo {{$archivo->NombreDelArchivo}}?')){window.location.href='/administradores/{{$archivo->id}}/archivo'}
+                        <td><a href="/estudiantes/index/{{$archivo->UrlArchivo}}" class="fa fa-cloud-download" style="font-size:20px" title="Descargar Archivo"></a>
+                                     <button title="Eliminar Archivo" style="font-size:20px; border: none; background: none;color: #337ab7" class="fa fa-trash-o" name="button" type='button' onclick="if(confirm('Deseas eliminar el archivo {{$archivo->NombreDelArchivo}}?')){window.location.href='/administradores/{{$archivo->id}}/archivo'}
                             else{ alert('Operacion Cancelada');}"></button>
                             </td>
 

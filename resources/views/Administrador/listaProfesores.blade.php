@@ -1,10 +1,14 @@
 @extends('layouts.masterAdministradores')
 @section('content')
-   <div class="page-header ">
+<div class="container">
+<div class="row">
+  <div class="section-title text-center">
   <h1>Lista de Profesores</h1>
+  </div>           
 </div>
 </br>
-<div  class="col-md-6 col-md-offset-3">
+<div class="row">
+  <div  class="col-md-6 col-md-offset-3">
 <form action="/administradores/listaprofesores">
   
     <div class="input-group">
@@ -13,16 +17,15 @@
         <button class="btn btn-default" type="submit" title="Buscar Profesor"><i class="fa fa-search"></i></button>
       </span>
     </div>
+
 </form>
  </div>
 </br>
 </br>
-<div>
-<button onclick="window.location.href='/administradores/create'" style="border: none; background: none"><i class="fa fa-plus" style="font-size:25px"></i></button>
-</div>
+<button title="Nuevo Profesor" onclick="window.location.href='/administradores/create'" style="border: none; background: none"><i class="fa fa-plus" style="font-size:25px"></i></button>
 </br>
 
-	<table class="table table-striped">
+  <table class="table table-striped">
   <thead>
     <th>NOMBRE COMPLETO</th>
     <th>CEDULA</th>
@@ -50,6 +53,9 @@
 </table>
 
 </div>
+  
+</div>
+  
 
 
 @endsection

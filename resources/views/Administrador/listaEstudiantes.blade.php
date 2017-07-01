@@ -1,11 +1,15 @@
 @extends('layouts.masterAdministradores')
 
 @section('content')
- <div class="page-header">
+<div class="container">
+<div class="row">
+  <div class="section-title text-center">
   <h1>Lista de Estudiantes</h1>
+  </div>           
 </div>
-</br> 
- <div  class="col-md-6 col-md-offset-3">
+</br>
+<div class="row">
+  <div  class="col-md-6 col-md-offset-3">
 <form action="/administradores/listaestudiantes">
     <div class="input-group">
       <input type="text" name="txtBuscar" class="form-control" placeholder="Ingrese el nombre del estudiante a buscar..." >
@@ -15,12 +19,10 @@
     </div>
 </form>
   </div>
-</br>
-</br>
-</br>
+  </br>
+  </br>
 
-<div>
-	<table class="table table-striped">
+  <table class="table table-striped">
   <thead>
     <th>NOMBRE COMPLETO</th>
     <th>CEDULA</th>
@@ -46,6 +48,13 @@
     @endforeach    
 </table>
 
+
+
 </div>
+ 
+
+  
+</div>
+ 
 
 @endsection
