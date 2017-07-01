@@ -1,17 +1,20 @@
 @extends('layouts.masterAdministradores')
 @section('content')
+   <div class="page-header ">
+  <h1>Lista de Profesores</h1>
+</div>
+</br>
+<div  class="col-md-6 col-md-offset-3">
 <form action="/administradores/listaprofesores">
-  <div  class="col-md-6 col-md-offset-3">
+  
     <div class="input-group">
-      <input type="text" name="txtBuscar" class="form-control" placeholder="Ingrese el nombre a buscar..." >
+      <input type="text" name="txtBuscar" class="form-control" placeholder="Ingrese el nombre del profesor a buscar..." >
       <span class="input-group-btn">
-        <button class="btn btn-default" type="submit">Buscar por Nombre</button>
+        <button class="btn btn-default" type="submit" title="Buscar Profesor"><i class="fa fa-search"></i></button>
       </span>
     </div>
-  </div>
 </form>
-  
-</br>
+ </div>
 </br>
 </br>
 <div>
@@ -34,7 +37,7 @@
       <td>{{$item->cedula}}</td>
       <td>{{$item->email}}</td>
 
-      <td><a href="/administradores/{{$item->id}}/editarprofesores"  class="fa fa-pencil" style="font-size:20px"></a> | <button style="border: none; background: none;font-size:20px" type="button" class="fa fa-trash-o" onclick="if(confirm('Deseas eliminar el profesor {{$item->name}}?')){window.location.href='/administradores/{{$item->id}}/profesor'}
+      <td><a href="/administradores/{{$item->id}}/editarprofesores"  class="fa fa-pencil" style="font-size:20px" title="Editar Profesor"></a> | <button title="Eliminar Profesor" style="border: none; background: none;font-size:20px" type="button" class="fa fa-trash-o" onclick="if(confirm('Deseas eliminar el profesor {{$item->name}}?')){window.location.href='/administradores/{{$item->id}}/profesor'}
                             else{ alert('Operacion Cancelada');}"></button>
 </td>
 

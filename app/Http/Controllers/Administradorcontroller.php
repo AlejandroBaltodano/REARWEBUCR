@@ -14,14 +14,15 @@ class Administradorcontroller extends Controller
     public function listaProfesores(Request $requests){
 
 $nombreProfesor= $requests->get('txtBuscar');
-    	$usuarios= User::name($nombreProfesor)->orderBy('id','DESC')->paginate();
+    	$usuarios= User::nameprofesor($nombreProfesor,2)->orderBy('id','DESC')->paginate();
      
     return view('Administrador\listaProfesores', compact('usuarios'));
     		
     	}
 
-    public function listaEstudiantes(){
-    	$usuarios= User::all();
+    public function listaEstudiantes(Request $requests){
+    	$nombreEstudiante= $requests->get('txtBuscar');
+        $usuarios= User::nameestudiante($nombreEstudiante,3)->orderBy('id','DESC')->paginate();
         return view('Administrador\listaEstudiantes', compact('usuarios'));
     
     		
@@ -102,18 +103,37 @@ if (\Hash::check($contraseñaActual, $contraseñaBD))
 public function updateProfesor(Request $requests, $idProfesor){
 
 $profesor = User::find($idProfesor);
+$contraseñaActual= $requests->get('passwordActual');
+$contraseñaBD= $profesor->password;
+$contraseña= $requests->get('password');
+$confirmarContraseña= $requests->get('password_confirmation');
 
+if (\Hash::check($contraseñaActual, $contraseñaBD))
+{
+    if ($contraseña === $confirmarContraseña) {
 
-          $profesor->name = $requests['name'];
+             $profesor->name = $requests['name'];
              $profesor->email = $requests['email'];
              $profesor->IdRolusuario = $requests['IdRolusuario'];
              $profesor->carnetEstudiante= $requests['carnetEstudiante'];
              $profesor->cedula = $requests['cedula'];
+             $profesor->password = bcrypt($contraseña);
              $profesor->save();
 
              return redirect('/administradores/listaprofesores');
-    
+    }else{
 
+
+        session()->flash("message", "Los campos Contraseña y Confirmar Contraseña deben de coincidir");
+         return back();
+    }
+
+}else{
+
+
+        session()->flash("message", "Contraseña Actual Incorrecta");
+        return back();
+    }
 
 }
 
@@ -131,9 +151,6 @@ public  function destroyEstudiante($idEstudiante){
 $estudiante = User::find($idEstudiante);
 $estudiante->delete();
 return back();
-
-
-
 
 }
 
