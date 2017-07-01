@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
           </button>
          
-          <a class="navbar-brand" href="/estudiantes/index">REARWEUCR- Estudiante</a>
+          <a class="navbar-brand" href="/estudiantes/index">REARWEBUCR- Estudiante</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <!--izquierda-->
