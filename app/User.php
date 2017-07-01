@@ -59,9 +59,6 @@ if (trim($name) != "") {
 if (trim($name) != "") {
 
  $query->where("name","LIKE", "%".$name."%","and","IdRolusuario","=","$rol");
-}else{
-
-    session()->flash("message", "El campo buscar no puede ir vacio");
 }
    
     }
