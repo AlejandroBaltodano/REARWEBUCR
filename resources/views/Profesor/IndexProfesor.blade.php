@@ -1,6 +1,10 @@
 @extends('layouts.masterProfesores')
 @section('content')
-
+    <div class="row">
+        <div class="section-title text-center">
+            <h1>Lista de Estudiantes</h1>
+        </div>
+    </div>
     <div>
         <div style="display: inline-block; width: 100%">
         <form action="/Profesor/index" class="pull-right" style="width: 50%">
