@@ -94,18 +94,28 @@
 
 -->
 
-<div class="col-md-4 col-md-offset-4">
 
-<div class="login-form">
+<br>
+
+<div class="container">
+
+    <div class="row">
+
+<div class="col-md-8 col-md-offset-2">
+<div class="panel panel-default">
+
+ 
+<div class="panel-body">
 <form class="form-group" role="form" method="POST" action="{{ route('login') }}">
  {{ csrf_field() }}   
-<h1>Login</h1>
+<h3>Iniciar sesión REARWEBUCR</h3>
                                           
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                                       
+                                <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>                       
                                 <input id="email" type="email" class="form-control" name="email" placeholder="Correo Electronico" value="{{ old('email') }}" required autofocus>
-
+</div>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -113,11 +123,13 @@
                                 @endif
                             
 
-                        </div>
+                        
 
-
+</div>
                         <div class="form-group log-status{{ $errors->has('password') ? ' has-error' : '' }}">
                        
+                        <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                        <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -128,7 +140,7 @@
                             
 
 
-
+</div>
                         </div>
 
                         <div class="form-group">
@@ -158,6 +170,10 @@
                     </form>
                
 
+</div>
+</div>
+
+</div>
 </div>
 </div>
 <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>

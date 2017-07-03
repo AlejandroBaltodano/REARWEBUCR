@@ -11,6 +11,7 @@ class Administradorcontroller extends Controller
 {
 
 	
+    
     public function listaProfesores(Request $requests){
 
 $nombreProfesor= $requests->get('txtBuscar');
