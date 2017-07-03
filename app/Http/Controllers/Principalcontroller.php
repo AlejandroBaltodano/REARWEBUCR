@@ -21,8 +21,9 @@ class Principalcontroller extends Controller
     return view('Administrador\listaProfesores', compact('usuarios'));
 
     	}elseif ($user->IdRolusuario === 2) {
+    	    $txtBuscarValor='';
             $usuarios = User::where('IdRolusuario', '=', 3)->get();
-            return view('Profesor/IndexProfesor', compact('usuarios'));
+            return view('Profesor/IndexProfesor', compact('usuarios','txtBuscarValor'));
 
         }else{
             $UserEstudiante= Auth::user();

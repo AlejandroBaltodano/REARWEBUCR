@@ -20,18 +20,19 @@
 
                 </div>
             </div>
-
-            <button onclick="window.location.href='/estudiantes/Archivos/subirArchivo'" style=" color:#337ab7 ;border: none; background: none"><i class="fa fa-plus" style="font-size:25px"></i></button>
-            <form action="/estudiantes/index" class="pull-right">
+            <div style="display: inline-block; width: 100%">
+            <button onclick="window.location.href='/estudiantes/Archivos/subirArchivo'" style=" color:#337ab7 ;border: none; background: none"><i class="fa fa-plus" style="font-size:25px; display: block"></i></button>
+                <form action="/estudiantes/index" class="pull-right" style="width: 50%">
                 <div  class="col-md-6 col-md-offset-3">
-                    <div class="input-group">
-                        <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="width: 250px">
-                        <span class="input-group-btn">
+                    <div class="input-group" >
+                        <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control pull-right" placeholder="Ingrese para buscar..." style="width: 250px">
+                        <span class="input-group-btn" >
         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
       </span>
                     </div>
                 </div>
             </form>
+</div>
             <div class="row">
                 <table class="table table-striped">
                 <thead>
