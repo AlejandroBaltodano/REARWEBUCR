@@ -20,17 +20,18 @@
 
             </div>
         </div>
-        <form action='{{$UserEstudiante->id}}' class="pull-right">
+        <div style="display: inline-block; width: 100%">
+        <form action='{{$UserEstudiante->id}}' class="pull-right" style="width: 50%">
             <div  class="col-md-6 col-md-offset-3">
                 <div class="input-group">
-                    <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="width: 250px">
+                    <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="width: 250px ;display: block"">
                     <span class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
       </span>
                 </div>
             </div>
         </form>
-
+        </div>
 
         <div class="row">
             <table class="table table-striped">
@@ -48,7 +49,7 @@
                         <td>{{$archivo->Descripcion}}</td>
                         <td>{{$archivo->created_at}}</td>
 
-                        <td><a href="/estudiantes/index/{{$archivo->UrlArchivo}}" class="fa fa-cloud-download" style="font-size:20px"></a>
+                        <td><a title="Descargar archivo" href="/estudiantes/index/{{$archivo->UrlArchivo}}" class="fa fa-cloud-download" style="font-size:20px"></a>
                         </td>
 
                     </tr>

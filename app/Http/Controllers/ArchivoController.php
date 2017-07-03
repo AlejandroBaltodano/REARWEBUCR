@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class ArchivoController extends Controller
 {
     public function GuardarArchivo(Request $requests){
-
-
+        $sobreescribir=$requests->input('Sobreescribir');
         if($requests->hasFile('ubicacionArchivo')) {
             $archivoSubido=$requests->file('ubicacionArchivo');
             $NombreCorto = explode(".", $archivoSubido->getClientOriginalName());
@@ -33,11 +32,13 @@ class ArchivoController extends Controller
             $NombreDeArchivoGurdados=Archivo::all();
             foreach ($NombreDeArchivoGurdados as $archivo){
                 if($archivo->NombreDelArchivo==$ArchivoNuevo->NombreDelArchivo){
-                    $archivo= Archivo::find($archivo->id);
-                    $archivo->delete();
+                    if($sobreescribir) {
+                        $archivo = Archivo::find($archivo->id);
+                        $archivo->delete();
 
-                   //$this->GuardarArchivo($requests);
-
+                        //$this->GuardarArchivo($requests);
+                    }else{    return redirect('/estudiantes/index');
+                    }
             }
             }
             Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo,file_get_contents($archivoSubido->getRealPath()) );
@@ -102,9 +103,9 @@ class ArchivoController extends Controller
 
             $rutaArchivo = Auth::user()->carnetEstudiante . '_' . $archivo->NombreDelArchivo;
             $storage_path = storage_path();
-            $url = $storage_path.'\ArchivosREARWEBUCR\\'.Auth::user()->carnetEstudiante . '_'.$ArchivoNuevo->NombreDelArchivo;
+            $url = $storage_path.'\ArchivosREARWEBUCR\\'.Auth::user()->carnetEstudiante . '_'.$ArchivoViejo->NombreDelArchivo;
             Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo, file_get_contents($url));
-            Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoNuevo->UrlArchivo);
+            Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoViejo->UrlArchivo);
             $archivo->UrlArchivo = $rutaArchivo;
             $archivo->save();
             return redirect('/estudiantes/index');

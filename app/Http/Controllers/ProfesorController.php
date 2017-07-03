@@ -20,9 +20,19 @@ class ProfesorController extends Controller
 
             $txtBuscarValor=$requests->get('txtBuscar');
             return view('Profesor/ListarArchivosEstudiante', compact('Archivos', 'txtBuscarValor','UserEstudiante'));
+        }}
+
+    public function Index(Request $requests){
+        $usuarios = User::where('IdRolusuario', '=', 3)->get();
+        if(is_null($requests->get('txtBuscar'))){
+            $txtBuscarValor='';
+
+            return view('Profesor/IndexProfesor', compact('usuarios', 'txtBuscarValor'));
+        }else{$EstudianteFiltrar= $requests->get('txtBuscar');
+            $usuarios = User::where('name','like','%'.$EstudianteFiltrar.'%','and','IdRolusuario','=',3)->get();
+            $txtBuscarValor=$requests->get('txtBuscar');
+            return view('Profesor/IndexProfesor', compact('usuarios', 'txtBuscarValor'));
         }
-
-
-
     }
+
 }
