@@ -52,10 +52,10 @@
             <span class="glyphicon glyphicon-user"></span>
           {{ Auth::user()->name}} <span class="caret"></span>
             </a>
-            
+             
             <ul class="dropdown-menu" role="menu">
-            <li>
-          <a href="#">{{Auth::user()->roles->NombreRol}}</a>
+            <li> 
+          <a href="/estudiantes/{{Auth::user()->id}}/editarestudiante">Editar Perfil</a>
             </li>
             <li>
             <a href="{{ route('logout') }}"
