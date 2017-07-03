@@ -90,11 +90,8 @@
                             </div>
                         </div>
                         
-                                <input id="IdRolusuario" type="hidden" class="form-control" name="IdRolusuario" value="3">
+                                <input id="IdRolusuario" type="hidden" class="form-control" name="IdRolusuario" value="1">
 
-
-                           
-                       
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

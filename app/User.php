@@ -43,11 +43,22 @@ protected $primaryKey= 'id';
         return $this->hasMany('App\Archivo');
 
     }
-//este metodo me sirve para hacer la busqueda dinamica por nombre
-    public function scopeName($query, $name){
+//este metodo me sirve para hacer la busqueda dinamica por nombre profesor
+    public function scopeNameProfesor($query, $name,$rol){
+      
+if (trim($name) != "") {
+ $query->where("name","LIKE", "%".$name."%","and","IdRolusuario","=","$rol");
+
+}
+   
+    }
+
+    //este metodo me sirve para hacer la busqueda dinamica por nombre estudiante
+    public function scopeNameEstudiante($query, $name,$rol){
+
 if (trim($name) != "") {
 
- $query->where("name","LIKE", "%$name%");
+ $query->where("name","LIKE", "%".$name."%","and","IdRolusuario","=","$rol");
 }
    
     }

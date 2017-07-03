@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="../../favicon.png">
 
     <title>Menu Principal Administradores</title>
 
@@ -39,7 +39,7 @@
             <span class="icon-bar"></span>
           </button>
    
-          <a class="navbar-brand" href="/">REARWEUCR- Administrador</a>
+          <a class="navbar-brand" href="/">REARWEBUCR- Administrador</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <!--izquierda-->
@@ -88,7 +88,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div>&copy; 2017- Todos los derechos reservados. Hecho por: Carlos Alejandro Reyes Baltodano</div>
+                        <div>&copy; 2017- Todos los derechos reservados. Hecho por: Carlos Reyes, Jose Gomez, Jesus Gonzales, Dayana Lobo, Moises Salazar</div>
                     </div>
                 </div>
             </div>
