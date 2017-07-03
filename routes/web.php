@@ -58,6 +58,7 @@ Route::put('/estudiantes/{idEstud}/estud', 'Estudiantecontroller@updateEstud');
 
     Route::get('/Profesor/ArchivosEstudiante/{id}',"ProfesorController@ListarArchivosEstudiante");
     Route::get('/Profesor/index','ProfesorController@Index');
+    Route::get('/Profesor/Perfil','ProfesorController@editarProfesor');
 });
 
 Auth::routes();
