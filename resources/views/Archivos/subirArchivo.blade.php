@@ -26,18 +26,6 @@
 					    <textarea class="form-control" name="Descripcion" rows="3"></textarea>
 					  </div>
 
-						<script type="text/javascript">
-									function Reemplazar () {
-										@foreach($User->Archivos as $archivo)
-
-                                        if(document.Formulario.NombreDelArchivo){
-                                            if(confirm('Ya existe un archivo con este nombre eseas Reemplazar el archivo {{$archivo->NombreDelArchivo}}?')){document.Formulario.submit()}
-                                            else{ alert('Operacion Cancelada');}}
-										@endforeach
-                                    }
-
-						</script>
-
 						<button type="submit" class="btn btn-primary">Subir</button>
 
 					</form>
