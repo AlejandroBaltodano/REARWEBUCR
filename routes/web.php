@@ -44,6 +44,9 @@ Route::resource('administradores','Administradorcontroller');
 //fin rutas administradores
 
 
+
+
+
 Route::post('/estudiantes/guardarArchivo','ArchivoController@GuardarArchivo');
 Route::get('/estudiantes/index','ArchivoController@MostrarArchivosEstudiante');
 Route::get('/estudiantes/{idEstud}/editarestudiante', 'Estudiantecontroller@editEstudiante');
@@ -63,4 +66,8 @@ Route::put('/estudiantes/{idEstud}/estud', 'Estudiantecontroller@updateEstud');
 
 Auth::routes();
 
+Route::get('about',function()
+{
+	return View('auth/about');
+});
 

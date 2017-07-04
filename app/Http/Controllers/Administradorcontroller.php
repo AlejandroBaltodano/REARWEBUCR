@@ -33,6 +33,8 @@ public function create(){
 
 }
 
+
+
 public function store(Request $requests){
  //otra forma de agregar cuando necesito manipular los datos
  $profesor = User::create([
@@ -87,9 +89,7 @@ if (\Hash::check($contraseñaActual, $contraseñaBD))
         session()->flash("message", "Contraseña Actual Incorrecta");
         return back();
     }
-
-
-          
+      
     
 
 
@@ -171,6 +171,9 @@ public function verArchivosEstudiante($idEstudiante){
         return back();//redirect('/estudiantes/index');
 
     }
+
+
+
 
 
 
