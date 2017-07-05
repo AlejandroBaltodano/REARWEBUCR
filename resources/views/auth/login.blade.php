@@ -98,83 +98,62 @@
 <br>
 
 <div class="container">
-
     <div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-<div class="panel panel-default">
-
- 
-<div class="panel-body">
-<form class="form-group" role="form" method="POST" action="{{ route('login') }}">
- {{ csrf_field() }}   
-<h3>Iniciar sesión REARWEBUCR</h3>
-                                          
-
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Iniciar sesión REARWEBUCR</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-group" role="form" method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}   
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>                       
                                 <input id="email" type="email" class="form-control" name="email" placeholder="Correo Electronico" value="{{ old('email') }}" required autofocus>
-</div>
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            
-
-                        
-
-</div>
+                            </div>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                         <div class="form-group log-status{{ $errors->has('password') ? ' has-error' : '' }}">
                        
-                        <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                       <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password" required>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            
-
-
-</div>
+                            </div>
                         </div>
-
                         <div class="form-group">
-                            
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordar
                                     </label>
-                                </div>
-                            
+                                </div>                          
                         </div>
-                       
 
                         <div class="form-group">
-                          
-                                <button type="submit" class="log-btn">
-                                    Ingresar
+
+                                <button type="submit" class="btn btn-default btn-lg">
+                                Ingresar <i class="fa fa-sign-in" aria-hidden="true"></i>
                                 </button>
-                              
+
                                  <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Olvido su contraseña?
+                                    ¿Olvidó su contraseña?
                                 </a>
-                           
-</div>
-                        
-
+                        </div>
                     </form>
-               
-
-</div>
-</div>
-
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 

@@ -55,13 +55,13 @@
              
             <ul class="dropdown-menu" role="menu">
             <li> 
-          <a href="/estudiantes/{{Auth::user()->id}}/editarestudiante">Editar Perfil</a>
+          <a href="/estudiantes/{{Auth::user()->id}}/editarestudiante">Editar Perfil <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </li>
             <li>
             <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-            Cerrar Sesion
+            Cerrar Sesion <i class="fa fa-sign-out" aria-hidden="true"></i>
             </a>
            </li>
             </ul>

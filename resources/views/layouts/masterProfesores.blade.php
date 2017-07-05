@@ -62,7 +62,7 @@
             <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-            Cerrar Sesion
+            Cerrar Sesion <i class="fa fa-sign-out" aria-hidden="true"></i>
             </a>
            </li>
             </ul>
