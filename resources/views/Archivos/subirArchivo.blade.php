@@ -12,7 +12,7 @@
 						<div class="form-group">
 							<label for="NombreDelArchivo">Nombre del archivo
 
-								<input name="NombreDelArchivo">
+								<input name="NombreDelArchivo"><small style="color: red; size: 10px">  *</small>
 							</label>
 						</div>
 						<div class="form-group">
@@ -22,9 +22,13 @@
 					  </div>
 
 						<div class="form-group">
-					    <label for="Descripcion">Descripcion</label>
+					    <label for="Descripcion">Descripcion</label><small style="color: red; size: 10px">  *</small>
 					    <textarea class="form-control" name="Descripcion" rows="3"></textarea>
 					  </div>
+
+						<div>
+							<p> <small>Los campos marcados con <span style="color: red; size: 12px" >*</span> son opcionales</small></p>
+						</div>
 
 						<button type="submit" class="btn btn-primary">Subir</button>
 
