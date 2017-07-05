@@ -66,7 +66,7 @@ Route::put('/estudiantes/{idEstud}/estud', 'Estudiantecontroller@updateEstud');
 
 Auth::routes();
 
-Route::get('about',function()
+Route::get('/about',function()
 {
 	return View('auth/about');
 });

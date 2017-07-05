@@ -54,7 +54,7 @@
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Inicio de sesión</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
-                            <li><a href="about">Sobre</a></li>
+                            <li><a href="/about">Acerca de...</a></li>
                             
                         @else
 

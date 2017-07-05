@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><H4 align="center"> Sobre REARWEBUCR</div></H4>
+                <div class="panel-heading"><H4 align="center"> Acerca de REARWEBUCR</div></H4>
 
                 <div class="panel-body">
 
