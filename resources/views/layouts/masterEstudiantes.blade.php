@@ -80,15 +80,17 @@
     <div class="copyright text-center">
             <div class="container">
                 <div class="row">
+
                     <div class="col-md-12">
-                        <div>&copy; 2017- Todos los derechos reservados. Carlos Reyes, Jose Gomez, Jesus Gonzales, Dayana Lobo, Moises Salazar</div>
+                        <div>&copy; 2017- Todos los derechos reservados. Carlos Reyes, Jose Gomez, Jesús González, Dayana Ruiz, Moises Salazar</div>
                     </div>
+
                 </div>
             </div>
         </div>
 
     </div><!-- /.container -->
-
+ \
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
       </form>

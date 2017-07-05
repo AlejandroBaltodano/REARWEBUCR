@@ -56,7 +56,7 @@
             
             <ul class="dropdown-menu" role="menu">
             <li>
-          <a href="Profesor/Perfil">{{Auth::user()->roles->NombreRol}}</a>
+          <a href="/Profesor/Perfil">{{Auth::user()->roles->NombreRol}}</a>
             </li>
             <li>
             <a href="{{ route('logout') }}"
@@ -81,7 +81,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div>&copy; 2017- Todos los derechos reservados. Carlos Reyes, Jose Gomez, Jesus Gonzales, Dayana Lobo, Moises Salazar</div>
+                      <div>&copy; 2017- Todos los derechos reservados. Carlos Reyes, Jose Gomez, Jesús González, Dayana Ruiz, Moises Salazar</div>
                     </div>
                 </div>
             </div>

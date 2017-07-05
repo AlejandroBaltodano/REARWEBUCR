@@ -1,8 +1,18 @@
 @extends('layouts.masterProfesores')
+<script language="javaScript">
+
+    $(document).ready(function () {
+
+            //Clear the texbox value
+        $("input[type='password']").val('');
+    });
+
+
+</script>
 
 @section('content')
     @include('partials.errores')
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -11,7 +21,7 @@
 
                         <p>Datos del Profesor</p>
 
-                        <form  class="form-horizontal" role="form" method="POST" action="/administradores/{{$profesor->id}}">
+                        <form   class="form-horizontal" role="form" method="POST" action="/administradores/{{$profesor->id}}">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="PUT"></input>
 
@@ -67,7 +77,8 @@
                                 <label for="passwordActual" class="col-md-4 control-label">Contraseña Actual</label>
 
                                 <div class="col-md-6">
-                                    <input id="passwordActual" type="password" class="form-control" name="passwordActual" required>
+
+                                    <input id="passwordActual" type="password" class="form-control" name="passwordActual"  required  >
 
                                     @if ($errors->has('passwordActual'))
                                         <span class="help-block">

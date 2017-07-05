@@ -17,10 +17,12 @@
 
 <H4 align="center"> Intengrantes</H4>
 <H5 align="center"> Carlos Reyes</H5>
+ <H5 align="center"> Dayana Ruiz</H5>
+ <H5 align="center"> Jesus Gonzalez</H5>
 <H5 align="center"> Jose Gomez</H5>
 <H5 align="center"> Moises Salazar</H5>
-<H5 align="center"> Jesus Gonzales</H5>
-<H5 align="center"> Dayana Lobo</H5>
+
+
 
 
 
