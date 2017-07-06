@@ -105,7 +105,9 @@ class ArchivoController extends Controller
             $storage_path = storage_path();
             $url = $storage_path.'\ArchivosREARWEBUCR\\'.Auth::user()->carnetEstudiante . '_'.$ArchivoViejo->NombreDelArchivo;
             Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo, file_get_contents($url));
-            Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoViejo->UrlArchivo);
+            if($ArchivoViejo->UrlArchivo!=$rutaArchivo) {
+                Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoViejo->UrlArchivo);
+            }
             $archivo->UrlArchivo = $rutaArchivo;
             $archivo->save();
             return redirect('/estudiantes/index');
@@ -124,8 +126,7 @@ class ArchivoController extends Controller
             }
             $rutaArchivo = Auth::user()->carnetEstudiante . '_' . $archivo->NombreDelArchivo;
             $archivo->UrlArchivo = $rutaArchivo;
-
-            Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoViejo->UrlArchivo);
+                Storage::disk('ArchivosREARWEBUCR')->delete($ArchivoViejo->UrlArchivo);
             Storage::disk('ArchivosREARWEBUCR')->put($rutaArchivo, file_get_contents($archivoSubido->getRealPath()));
             if ($archivo->save()) {
                 return redirect('/estudiantes/index');

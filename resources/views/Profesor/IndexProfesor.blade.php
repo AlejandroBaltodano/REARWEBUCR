@@ -7,10 +7,10 @@
     </div>
     <div>
         <div style="display: inline-block; width: 100%">
-        <form action="/Profesor/index" class="pull-right" style="width: 50%">
+        <form action="/Profesor/index" class="pull-right" style="width: 100%">
             <div  class="col-md-6 col-md-offset-3">
                 <div class="input-group">
-                    <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="width: 250px; display: block">
+                    <input value="{{$txtBuscarValor}}" type="text" name="txtBuscar" class="form-control" placeholder="Ingrese para buscar..." style="display: block">
                     <span class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
       </span>
