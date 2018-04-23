@@ -81,7 +81,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                      <div>&copy; 2017- Todos los derechos reservados. Carlos Reyes, Jose Gomez, Jesús González, Dayana Ruiz, Moises Salazar</div>
+                      <div>&copy; 2017- Todos los derechos reservados. Carlos Alejandro Reyes Baltodano</div>
                     </div>
                 </div>
             </div>
